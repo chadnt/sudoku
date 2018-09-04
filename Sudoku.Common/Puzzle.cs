@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Sudoku.Common
 {
     public class Puzzle
     {
         private const int ArrayLength = 81;
-        private readonly int?[] array;
 
         public Puzzle(int?[] array)
         {
@@ -15,19 +15,21 @@ namespace Sudoku.Common
                 throw new ArgumentException($"array length must be {ArrayLength}", "array");
             }
 
-            this.array = array;
+            Array = array;
             Initialize();
         }
 
-        public IDictionary<string, int?[]> Columns { get; private set; }
-        public IDictionary<string, int?[]> Groups { get; private set; }
-        public IDictionary<string, int?[]> Rows { get; private set; }
+        public int?[] Array { get; private set; }
+        public IList<Cell> Cells { get; set; }
+        public IDictionary<string, Group> Columns { get; set; }
+        public IDictionary<string, Cell> Grid { get; set; }
+        public IDictionary<string, Group> Groups { get; set; }
+        public bool IsValid { get; /* TODO: No duplicates in rows, columns, or groups.  At least one candidate value for each cell. */ }
+        public IDictionary<string, Group> Rows { get; set; }
 
         private void Initialize()
         {
-            Rows = PuzzleHelper.GetRows(array);
-            Columns = PuzzleHelper.GetColumns(array);
-            Groups = PuzzleHelper.GetGroups(array);
+            PuzzleHelper.Initialize(this);
         }
     }
 }

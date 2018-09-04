@@ -1,4 +1,5 @@
 ﻿using System;
+using Sudoku.Common;
 
 namespace Sudoku.CLI
 {
@@ -6,7 +7,12 @@ namespace Sudoku.CLI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var viewModel = new SudokuConsoleViewModel();
+            var array = new TestHelper().GetTestArray();
+            var puzzle = new Puzzle(array);
+
+            viewModel.Display(puzzle, Console.Out);
+            viewModel.DisplayCandidates(puzzle);
 
             Console.ReadKey();
         }

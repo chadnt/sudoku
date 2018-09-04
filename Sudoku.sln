@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sudoku.CLI", "Sudoku.CLI\Su
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoku.Common", "Sudoku.Common\Sudoku.Common.csproj", "{AAEAF678-A35E-49A3-8E47-F4DD0285A3D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudok.Tests", "Sudok.Tests\Sudok.Tests.csproj", "{38EF84D1-073B-4390-85D3-57BE2649F6D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sudoku.Tests", "Sudok.Tests\Sudoku.Tests.csproj", "{38EF84D1-073B-4390-85D3-57BE2649F6D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

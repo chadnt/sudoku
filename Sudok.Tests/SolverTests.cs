@@ -4,7 +4,7 @@ using System.Text;
 using Sudoku.Common;
 using Xunit;
 
-namespace Sudok.Tests
+namespace Sudoku.Tests
 {
     public class SolverTests
     {
