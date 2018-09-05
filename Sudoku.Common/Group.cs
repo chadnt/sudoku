@@ -8,9 +8,23 @@ namespace Sudoku.Common
     {
         private IList<Cell> list = new List<Cell>();
 
-        public bool IsValid => 
-            list.GroupBy(c => c.Value)
-            .All(g => g.Count() == 1);
+        public bool IsValid
+        {
+            get
+            {
+                // Valid if non-null values are unique
+                var unique = list
+                    .Where(c => c.Value != null)
+                    .GroupBy(c => c.Value)
+                    .All(g => g.Count() == 1);
+
+                // and between 1 and 9
+                var inRange = list.Where(c => c.Value != null)
+                    .All(c => c.Value >= 1 && c.Value <= 9);
+
+                return unique && inRange;
+            }
+        }
 
         public void Add(Cell item)
         {
